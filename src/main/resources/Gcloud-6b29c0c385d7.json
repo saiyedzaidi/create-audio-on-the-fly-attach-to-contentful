@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ninth-keyword-228900",
+  "private_key_id": "Your PK Id here",
+  "private_key": "Your private key here",
+  "client_email": "apiaccess@ninth-keyword-228900.iam.gserviceaccount.com",
+  "client_id": "your client id here",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/apiaccess%40ninth-keyword-228900.iam.gserviceaccount.com"
+}

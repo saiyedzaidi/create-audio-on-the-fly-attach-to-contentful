@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>in.zaidi.java</groupId>
+	<artifactId>contentful-audio</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>contentful-audio</name>
+
+	<properties>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyy-MM-dd-HH-mm</maven.build.timestamp.format>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<lombok.version>1.18.4</lombok.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-lambda-java-core</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-texttospeech</artifactId>
+			<version>0.70.0-beta</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.argparse4j</groupId>
+			<artifactId>argparse4j</artifactId>
+			<version>0.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.contentful.java</groupId>
+			<artifactId>cma-sdk</artifactId>
+			<version>3.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<!-- <transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+							<resource>Gcloud-6b29c0c385d7.json</resource>
+							<file>Gcloud-6b29c0c385d7.json</file>
+						</transformer>
+					</transformers> -->
+					<createDependencyReducedPom>true</createDependencyReducedPom>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
